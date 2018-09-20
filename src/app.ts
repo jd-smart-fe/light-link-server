@@ -4,7 +4,7 @@ import * as Path from 'path';
 import * as Log4js from 'log4js';
 import * as serve from 'koa-static';
 import * as KoaViews from 'koa-views';
-import router from './routers';
+import router from './routes';
 
 const logger = Log4js.getLogger('app');
 logger.level = 'info';
