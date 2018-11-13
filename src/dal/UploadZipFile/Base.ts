@@ -2,9 +2,18 @@ import { ReadStream } from 'fs';
 
 abstract class UploadZipFileBase {
   /**
-   * 上传文件
-   * @param data 要上传的文件流
+   * 要上传的数据流
+   * @protected
+   * @type {ReadStream}
+   * @memberof UploadZipFileBase
    */
-  abstract upload(data: ReadStream): boolean;
+  protected readStream: ReadStream;
+  constructor(readStream: ReadStream) {
+    this.readStream = readStream;
+  }
+  /**
+   * 上传文件
+   */
+  abstract upload(): boolean;
 }
 export default UploadZipFileBase;

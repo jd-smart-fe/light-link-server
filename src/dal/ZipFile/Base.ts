@@ -2,9 +2,22 @@ import { ReadStream } from 'fs';
 
 abstract class ZipFile {
   /**
-   * 压缩文件夹
-   * @param address 压缩文件夹的地址
+   * 压缩文件夹的地址
+   * @protected
+   * @type {string}
+   * @memberof ZipFile
    */
-  abstract zipDir(address: string): ReadStream;
+  protected address: string;
+  constructor (address: string) {
+    this.address = address;
+  }
+  /**
+   * 压缩文件夹
+   *
+   * @abstract
+   * @returns {ReadStream}
+   * @memberof ZipFile
+   */
+  abstract zipDir(): ReadStream;
 }
 export default ZipFile;

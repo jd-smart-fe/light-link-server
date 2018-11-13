@@ -5,6 +5,10 @@ export interface BuildTemplateResult {
 }
 
 abstract class BuildTemplatesBase {
-  abstract build(replaceResult: ReplaceResult): BuildTemplateResult;
+  protected replaceResult: ReplaceResult;
+  constructor(replaceResult: ReplaceResult) {
+    this.replaceResult = replaceResult;
+  }
+  abstract build(): BuildTemplateResult;
 }
 export default BuildTemplatesBase;

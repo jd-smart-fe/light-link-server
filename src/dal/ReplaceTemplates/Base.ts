@@ -7,8 +7,15 @@ abstract class ReplaceTemplatesBase {
   /**
    * 前后端定义的 JSON 协议
    * 根据 config 生成对应的模板
-   * @param config any
+   * @protected
+   * @type {*}
+   * @memberof ReplaceTemplatesBase
    */
-  abstract replaceTemplates(config: any): ReplaceResult;
+  protected config: any;
+  constructor(config) {
+    this.config = config;
+  }
+
+  abstract replaceTemplates(): ReplaceResult;
 }
 export default ReplaceTemplatesBase;
