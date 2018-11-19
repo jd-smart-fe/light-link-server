@@ -1,6 +1,5 @@
 import * as Koa from 'koa';
 import * as BodyParser from 'koa-bodyparser';
-import * as Path from 'path';
 import * as Log4js from 'log4js';
 import * as serve from 'koa-static';
 import * as KoaViews from 'koa-views';
