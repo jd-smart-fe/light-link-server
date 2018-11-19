@@ -1,0 +1,23 @@
+
+<template>
+  <div>
+    <h1>模版</h1>
+    <% widgets.forEach(function (item) { %>
+      <%# Notice how the single quotation mark is escaped in the output HTML %>
+      <p><%= item.name %></p>
+    <% }) %>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+    }
+  },
+  created () {
+  },
+  methods: {
+  }
+}
+</script>

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/* CSS Document */
+html{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; height:100%;}
+*{-webkit-tap-highlight-color:transparent;outline:0;}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;vertical-align:baseline}
+i,em{font-style:normal}
+ol,ul,li{list-style:none; margin:0; padding:0}
+input,select,button,h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal}
+body{margin:0 auto; min-width:320px; max-width:1024px; background:#efefef;font-size:14px;font-family:Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;line-height:1.5;color:#333;-webkit-text-size-adjust:100% !important;-webkit-user-select:none;user-select:none;}
+img{ width:100%; height:auto;border:none; interpolation-mode: bicubic;border:0;vertical-align:top}
+.txt-center{ text-align:center;}
+.txt-justify{ text-align:justify; text-justify:inter-ideograph;}
+a,button,input,i{-webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0); -ms-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0); padding:0; margin:0; font-weight:normal;}
+
+.blue{ color:#0096d6}
+header{ position:relative;position:relative; overflow: hidden; color: #fff; z-index:9; text-align:center; padding: 3% 0;width:100%}
+
+header .temperabox{width:80%; margin: auto; overflow: hidden; border-radius: 50%;}
+header .cur_tempera{ width: 100px; padding:6% 8%; margin: auto; border-radius: 12px 12px 0 0; line-height: normal;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
+background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));}
+
+
+header .airclean_pm{
+    width: 100px; padding:12% 8%; margin: auto; border-radius: 12px 12px 0 0; line-height: normal;
+}
+header .airquality{
+    width: 45%; padding:1% 2%; margin: auto; border-radius: 15px; line-height: normal;border: 1px solid #fff;
+    margin-bottom: 5%;
+}
+header .cur_tempera span{ font-size: 52px;}
+header .airclean_pm span{ font-size: 45px;}
+header ul{ overflow: hidden; padding: 2% 5%;}
+header ul li{ float: left; width: 50%; font-size: 13px; text-align: center;}
+header ul li span{ font-size: 28px;}
+
+header dl{ width:44%; position:absolute; top:50%; margin-top:-24px; color:#fff; text-align:center; right:0; font-size:20px;}
+header dl dd span{ font-size:24px;}
+
+/**蓝色**/
+header.blue_bg{ background-image: -webkit-gradient(linear, left top, left bottom, from(#3a75ed), to(#4ecaf5));
+background-image: -webkit-linear-gradient(top, #3a75ed, #4ecaf5);
+background-image: -moz-linear-gradient(top, #3a75ed, #4ecaf5);
+background-image: linear-gradient(to bottom, #3a75ed, #4ecaf5);}
+/**绿色**/
+header.green_bg{ background-image: -webkit-gradient(linear, left top, left bottom, from(#02ba7c), to(#34dfa5));
+background-image: -webkit-linear-gradient(top, #02ba7c, #34dfa5);
+background-image: -moz-linear-gradient(top, #02ba7c, #34dfa5);
+background-image: linear-gradient(to bottom, #02ba7c, #34dfa5);}
+/**橘色**/
+header.orange_bg{ background-image: -webkit-gradient(linear, left top, left bottom, from(#f9734e), to(#fe9f7a));
+background-image: -webkit-linear-gradient(top, #f9734e, #fe9f7a);
+background-image: -moz-linear-gradient(top, #f9734e, #fe9f7a);
+background-image: linear-gradient(to bottom, #f9734e, #fe9f7a);}
+
+/**橘色**/
+header.aircleaner{ background-image: -webkit-gradient(linear, left top, left bottom, from(#0a91e7), to(#03ced5));
+    background-image: -webkit-linear-gradient(top, #0a91e7, #03ced5);
+    background-image: -moz-linear-gradient(top, #0a91e7, #03ced5);
+    background-image: linear-gradient(to bottom, #0a91e7, #03ced5);}
+
+.mask{ background: rgba(0,0,0,0.4);position: fixed;z-index: 9990;top:0;left:0;width:100%;height:100%}
+.mask p {
+  word-wrap:break-word;
+  text-align: left;
+  margin-top:20%;
+  padding: 0 5px;
+  color: white;
+}
+.i_right {
+    font-style:none;color:rgb(89, 184, 252);
+}
+@media (min-width:375) and (max-width:415){
+}
+@media  (max-width:340px){}
+@media (max-height:480px){}
