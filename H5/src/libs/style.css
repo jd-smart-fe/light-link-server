@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* CSS Document */
+html{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; height:100%;}
+*{-webkit-tap-highlight-color:transparent;outline:0;}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;vertical-align:baseline}
+i,em{font-style:normal}
+ol,ul,li{list-style:none; margin:0; padding:0}
+input,select,button,h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal}
+body{margin:0 auto; min-width:320px; max-width:1024px; background:#efefef;font-size:14px;font-family:Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;line-height:1.5;color:#333;-webkit-text-size-adjust:100% !important;-webkit-user-select:none;user-select:none;}
+img{ width:100%; height:auto;border:none; interpolation-mode: bicubic;border:0;vertical-align:top}
+.txt-center{ text-align:center;}
+.txt-justify{ text-align:justify; text-justify:inter-ideograph;}
+a,button,input,i{-webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0); -ms-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0); padding:0; margin:0; font-weight:normal;}
+.c-mode-container .c-mode .c-mode-item:nth-last-child(1){
+  border-right: 1px solid #eee;
+}
+.mask{ background: rgba(0,0,0,0.4);position: fixed;z-index: 9990;top:0;left:0;width:100%;height:100%}
+
+header{ position:relative;position:relative; overflow: hidden; color: #fff; z-index:9; text-align:center; padding: 3% 0;width:100%}
+
+header .tempera-box{width:80%; margin: auto; overflow: hidden; border-radius: 50%;}
+header .cur-tempera{ width: 100px; padding:6% 8%; margin: auto; border-radius: 12px 12px 0 0; line-height: normal;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
+background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));}
+
+header .cur-tempera span{ font-size: 52px;}
+
+header ul{ overflow: hidden; padding: 2% 5%;}
+header ul li{ float: left; width: 50%; font-size: 13px; text-align: center;}
+header ul li span{ font-size: 28px;}
+
+header.bg-color{ background-image: -webkit-gradient(linear, left top, left bottom, from(#02ba7c), to(#34dfa5));
+background-image: -webkit-linear-gradient(top, #02ba7c, #34dfa5);
+background-image: -moz-linear-gradient(top, #02ba7c, #34dfa5);
+background-image: linear-gradient(to bottom, #02ba7c, #34dfa5);}
