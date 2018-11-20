@@ -81,114 +81,118 @@ export default {
     Header,Power,Modes,Counter,WindRang,SwitchButton
   },
   data() {
-   return {
+    return {
       mengban: false,
       pevDate: {},
       modes: {
         modeValue: 0,
         streamId: 'Mode',
-        modeData: [{
-        text: '自动',
-        icon:'icon-mode-automatic',
-        id: 0,
-      },{
-        text: '制冷',
-        icon:'icon-mode-freeze',
-        id: 1,
-      },{
-        text: '制热',
-        icon:'icon-mode-holiday',
-        id: 2,
-      },{
-        text: '除湿',
-        icon:'icon-mode-dry',
-        id: 3,
-      },{
-        text: '送风',
-        icon:'icon-range-large',
-        id: 4
-      },{
-        text: '智能',
-        icon:'icon-mode-smart',
-        id: 5,
-      },{
-        text: '通风',
-        icon:'icon-mode-cool',
-        id: 6,
-      }],
-     },
-     header: {
-       topData: '--',
-       topTitle: '当前温度',
-       leftData: '自动',
-       leftTitle: '当前模式',
-       rightData: '自动',
-       rightTitle: '当前风速',
-       topUnit:'°c',
-       leftUnit: '',
-       rightUnit:'档'
-     },
-     power: {
-      powerState: true,
-      powerText: '设备已关闭',
-      streamId: 'Power',
-     },
-     counter: {
-      counterData: 22,
-      counterText: '温度设置',
-      counterMax: 32,
-      counterMin: 16,
-      counterStep: 1,
-      streamId: 'TemperatureSet',
-     },
-     rang: {
-       streamId: 'Wind',
-       windRangData: {value: 0, text: '自动'},
-       windRangText: '风速调节',
-       windRangValues: [{
-        value: 0,
-        text: '自动'
-      },{
-        value: 1,
-        text: '微风'
-      },{
-        value: 2,
-        text: '低风'
-      },{
-        value: 3,
-        text: '中风'
-      },{
-        value: 4,
-        text: '高风'
-      },{
-        value: 5,
-        text: '静音'
-      },{
-        value: 6,
-        text: '自然'
-      }],
-     },
-     switchs: {
-      sh1:{
-        streamId: 'ScreenDisplay',
-        switchData: false,
-        switchText: '屏显'
+        modeData: [
+          {
+            text: '自动',
+            icon:'icon-mode-automatic',
+            id: 0,
+          },{
+            text: '制冷',
+            icon:'icon-mode-freeze',
+            id: 1,
+          },{
+            text: '制热',
+            icon:'icon-mode-holiday',
+            id: 2,
+          },{
+            text: '除湿',
+            icon:'icon-mode-dry',
+            id: 3,
+          },{
+            text: '送风',
+            icon:'icon-range-large',
+            id: 4
+          },{
+            text: '智能',
+            icon:'icon-mode-smart',
+            id: 5,
+          },{
+            text: '通风',
+            icon:'icon-mode-cool',
+            id: 6,
+          }
+        ],
       },
-       sh2: {
-         streamId: 'Mute',
-         switchData: false,
-         switchText: '静音'
-       },
-       sh3: {
-         streamId: 'Sleep',
-         switchData: false,
-         switchText: '睡眠'
-       }
-     }
-   }
+      header: {
+        topData: '--',
+        topTitle: '当前温度',
+        leftData: '自动',
+        leftTitle: '当前模式',
+        rightData: '自动',
+        rightTitle: '当前风速',
+        topUnit:'°c',
+        leftUnit: '',
+        rightUnit:'档'
+      },
+      power: {
+        powerState: true,
+        powerText: '设备已关闭',
+        streamId: 'Power',
+      },
+      counter: {
+        counterData: 22,
+        counterText: '温度设置',
+        counterMax: 32,
+        counterMin: 16,
+        counterStep: 1,
+        streamId: 'TemperatureSet',
+      },
+      rang: {
+        streamId: 'Wind',
+        windRangData: {value: 0, text: '自动'},
+        windRangText: '风速调节',
+        windRangValues: [
+          {
+            value: 0,
+            text: '自动'
+          },{
+            value: 1,
+            text: '微风'
+          },{
+            value: 2,
+            text: '低风'
+          },{
+            value: 3,
+            text: '中风'
+          },{
+            value: 4,
+            text: '高风'
+          },{
+            value: 5,
+            text: '静音'
+          },{
+            value: 6,
+            text: '自然'
+          }
+        ],
+      },
+      switchs: {
+        sh1:{
+          streamId: 'ScreenDisplay',
+          switchData: false,
+          switchText: '屏显'
+        },
+        sh2: {
+          streamId: 'Mute',
+          switchData: false,
+          switchText: '静音'
+        },
+        sh3: {
+          streamId: 'Sleep',
+          switchData: false,
+          switchText: '睡眠'
+        }
+      }
+    }
   },
   mounted() {
-     window.JDSMART.ready(() => {
+    window.JDSMART.ready(() => {
       this.initData();
       this.setIntervalOfTimeOut(4000);
     });
@@ -228,8 +232,8 @@ export default {
       });
     },
     resolveStreams(data) {
-       const streamObj = {};
-       data.forEach((val) => {
+      const streamObj = {};
+      data.forEach((val) => {
         if (val.stream_id === 'Power') {
           streamObj.Power = window.parseInt(val.current_value);
         }
