@@ -1,82 +1,69 @@
 <template>
   <div id="app">
-    {% if H5Data.data.header.is_show %}
     <Header
-      :topTitle = "header.topTitle"
-      :leftTitle = "header.leftTitle"
-      :rightTitle = "header.rightTitle"
-      :topData = "header.topData"
-      :leftData = "header.leftData"
-      :rightData = "header.rightData"
-      :topUnit = "header.topUnit"
-      :leftUnit = "header.leftUnit"
-      :rightUnit = "header.rightUnit"
+    :topData="header.topData"
+    :topTitle = "header.topTitle"
+    :leftData = "header.leftData"
+    :leftTitle= "header.leftTitle"
+    :rightData = "header.rightData"
+    :rightTitle = "header.rightTitle"
+    :topUnit = "header.topUnit"
+    :leftUnit = "header.leftUnit"
+    :rightUnit = "header.rightUnit"
     />
-    {% endif %}
-    {% if H5Data.data.power.is_show %}
     <Power
-      :powerState = "power.powerState"
-      :powerText = "power.powerText"
-      @changes="updatePower"
-      :streamId ="power.streamId"
-    />
-    {% endif %}
-    {% if H5Data.data.counter.is_show %}
-    <Counter
-      :counterText="counter.counterText"
-      :counterData="counter.counterData"
-      :counterMax="counter.counterMax"
-      :counterMin="counter.counterMin"
-      :counterStep="counter.counterStep"
-      :streamId="counter.streamId"
-      @changes="updateCounter"
-    />
-    {% endif %}
-    {% if H5Data.data.modes.is_show %}
-    <Modes
-      :modeText="modes.modeText"
-      :modeData="modes.modeData"
-      :modeValue="modes.modeValue"
-      @changes="updateMode"
-      :streamId ="modes.streamId"
-    />
-    {% endif %}
-    {% if H5Data.data.windRang.is_show %}
-    <WindRang
-      :windRangData="rang.windRangData"
-      :windRangText="rang.windRangText"
-      :windRangValues="rang.windRangValues"
-      :streamId = "rang.streamId"
-      @changes="updateRang"
-    />
-    {% endif %}
-    {% if H5Data.data.screenDisplay.is_show %}
-    <SwitchButton
+     :powerState = "power.powerState"
+     :powerText = "power.powerText"
+     @changes="updatePower"
+     :streamId ="power.streamId"
+     />
+
+     <Counter
+     :counterData="counter.counterData"
+     :counterText="counter.counterText"
+     :counterMax="counter.counterMax"
+     :counterMin="counter.counterMin"
+     :counterStep="counter.counterStep"
+     :streamId="counter.streamId"
+     @changes="updateCounter"
+     />
+
+     <Modes :modeData="modes.modeData"
+     :modeValue="modes.modeValue"
+     @changes="updateMode"
+     :streamId ="modes.streamId"
+     />
+
+     <WindRang
+       :windRangData="rang.windRangData"
+       :windRangText="rang.windRangText"
+       :windRangValues="rang.windRangValues"
+       :streamId = "rang.streamId"
+       @changes="updateRang"
+      />
+     <SwitchButton
       :switchData="switchs.sh1.switchData"
       :switchText="switchs.sh1.switchText"
       :streamId = "switchs.sh1.streamId"
-      @changes= "updateSh1"
-    />
-    {% endif %}
-    {% if H5Data.data.mute.is_show %}
-    <SwitchButton
+       @changes= "updateSh1"
+     />
+     <SwitchButton
       :switchData="switchs.sh2.switchData"
       :switchText="switchs.sh2.switchText"
       :streamId = "switchs.sh2.streamId"
-      @changes= "updateSh2"
-    />
-    {% endif %}
-    {% if H5Data.data.sleep.is_show %}
-    <SwitchButton
+       @changes= "updateSh2"
+     />
+     <SwitchButton
       :switchData="switchs.sh3.switchData"
       :switchText="switchs.sh3.switchText"
       :streamId = "switchs.sh3.streamId"
-      @changes= "updateSh3"
-    />
-    {% endif %}
+       @changes= "updateSh3"
+     />
+     <!-- <SwitchButton />
+     <SwitchButton /> -->
 
-    <div style="height: 20px;"></div>
-    <div class="mask" v-show="mengban"></div>
+      <div style="height: 20px;"></div>
+      <div class="mask" v-show="mengban"></div>
   </div>
 </template>
 
@@ -97,13 +84,48 @@ export default {
     return {
       mengban: false,
       pevDate: {},
+      modes: {
+        modeValue: 0,
+        streamId: 'Mode',
+        modeData: [
+          {
+            text: '自动',
+            icon:'icon-mode-automatic',
+            id: 0,
+          },{
+            text: '制冷',
+            icon:'icon-mode-freeze',
+            id: 1,
+          },{
+            text: '制热',
+            icon:'icon-mode-holiday',
+            id: 2,
+          },{
+            text: '除湿',
+            icon:'icon-mode-dry',
+            id: 3,
+          },{
+            text: '送风',
+            icon:'icon-range-large',
+            id: 4
+          },{
+            text: '智能',
+            icon:'icon-mode-smart',
+            id: 5,
+          },{
+            text: '通风',
+            icon:'icon-mode-cool',
+            id: 6,
+          }
+        ],
+      },
       header: {
         topData: '--',
-        topTitle: '[[H5Data.data.header.des_curtemp]]',
-        leftTitle: '[[H5Data.data.header.des_pattern]]',
-        rightTitle: '[[H5Data.data.header.des_speed]]',
+        topTitle: '当前温度',
         leftData: '自动',
+        leftTitle: '当前模式',
         rightData: '自动',
+        rightTitle: '当前风速',
         topUnit:'°c',
         leftUnit: '',
         rightUnit:'档'
@@ -115,39 +137,56 @@ export default {
       },
       counter: {
         counterData: 22,
-        counterText: '[[H5Data.data.counter.title]]',
+        counterText: '温度设置',
         counterMax: 32,
         counterMin: 16,
         counterStep: 1,
         streamId: 'TemperatureSet',
       },
-      modes: {
-        modeValue: 0,
-        streamId: 'Mode',
-        modeText: '[[H5Data.data.modes.title]]',
-        modeData: [[H5Data.data.modes.modeData | safe]],
-      },
       rang: {
         streamId: 'Wind',
         windRangData: {value: 0, text: '自动'},
-        windRangText: '[[H5Data.data.windRang.title]]',
-        windRangValues: [[H5Data.data.windRang.windRangValues | safe]],
+        windRangText: '风速调节',
+        windRangValues: [
+          {
+            value: 0,
+            text: '自动'
+          },{
+            value: 1,
+            text: '微风'
+          },{
+            value: 2,
+            text: '低风'
+          },{
+            value: 3,
+            text: '中风'
+          },{
+            value: 4,
+            text: '高风'
+          },{
+            value: 5,
+            text: '静音'
+          },{
+            value: 6,
+            text: '自然'
+          }
+        ],
       },
       switchs: {
         sh1:{
           streamId: 'ScreenDisplay',
           switchData: false,
-          switchText: '[[H5Data.data.screenDisplay.title]]'
+          switchText: '屏显'
         },
         sh2: {
           streamId: 'Mute',
           switchData: false,
-          switchText: '[[H5Data.data.mute.title]]'
+          switchText: '静音'
         },
         sh3: {
           streamId: 'Sleep',
           switchData: false,
-          switchText: '[[H5Data.data.sleep.title]]'
+          switchText: '睡眠'
         }
       }
     }

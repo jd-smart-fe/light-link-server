@@ -12,75 +12,124 @@ nunjucks.configure('templates', {
     }
 });
 
-const data = {
+const H5Data = {
   curtemp: '当前温度------',
   key: '测试数据',
   productId: '',
   data: {
-    options: [
-      {
-        type: 'panel',
-        name: '当前温度',
-        value: '--',
-        ability: [
+    header: {
+      type: 'Header',
+      is_show: true,
+      des_curtemp: '当前温度12',
+      des_pattern: '当前模式34',
+      des_speed: '当前风速56',
+    },
+    power: {
+      type: 'Power',
+      is_show: true,
+      status: {
+        0: '设备已关闭',
+        1: '设备已开启'
+      }
+    },
+    counter: {
+      type: 'Counter',
+      is_show: true,
+      title: '温度设置',
+    },
+    modes: {
+      type: 'Modes',
+      is_show: true,
+      title: '模式设置0000',
+      modeData: JSON.stringify(
+        [
           {
-            describe: '当前模式',
-            currentStatus: '制冷',
-            status: ['制冷', '加热', '除湿']
-          },
-          {
-            describe: '当前风速',
-            currentStatus: '自动',
-            status: ['自动', '手动', '定时']
+            id: 0,
+            text: '自动0',
+            icon:'icon-mode-automatic',
+          },{
+            id: 1,
+            text: '制冷1',
+            icon:'icon-mode-freeze',
+          },{
+            id: 2,
+            text: '制热2',
+            icon:'icon-mode-holiday',
+          },{
+            id: 3,
+            text: '除湿',
+            icon:'icon-mode-dry',
+          },{
+            id: 4,
+            text: '送风',
+            icon:'icon-range-large',
+          },{
+            id: 5,
+            text: '智能',
+            icon:'icon-mode-smart',
+          },{
+            id: 6,
+            text: '通风',
+            icon:'icon-mode-cool',
           }
         ]
-      },
-      {
-        type: 'switch',
-        name: '开关',
-        status: ['on', 'off']
-      },
-      {
-        type: 'temperature',
-        name: '温度',
-        value: 0,
-        status: []
-      },
-      {
-        type: 'pattern',
-        name: '模式',
-        status: ['空调已关闭', '空调已开启']
-      },
-      {
-        type: 'speed',
-        name: '风速',
-        status: ['自动', '低风', '中风', '高风', '强力', '静音']
-      },
-      {
-        type: 'energy',
-        name: '节能',
-        status: ['on', 'off'],
-      },
-      {
-        type: 'sleep',
-        name: '睡眠',
-        status: ['on', 'off'],
-      },
-      {
-        type: 'screen',
-        name: '显屏',
-        status: ['on', 'off'],
-      },
-    ]
+      )
+    },
+    windRang: {
+      type: 'WindRang',
+      is_show: true,
+      title: '风速调节123',
+      windRangValues: JSON.stringify(
+        [
+          {
+            value: 0,
+            text: '自动'
+          },{
+            value: 1,
+            text: '微风'
+          },{
+            value: 2,
+            text: '低风'
+          },{
+            value: 3,
+            text: '中风'
+          },{
+            value: 4,
+            text: '高风'
+          },{
+            value: 5,
+            text: '静音'
+          },{
+            value: 6,
+            text: '自然'
+          }
+        ]
+      )
+    },
+    screenDisplay: {
+      type: 'ScreenDisplay',
+      is_show: true,
+      title: '屏显123',
+    },
+    mute: {
+      type: 'Mute',
+      is_show: true,
+      title: '静音123',
+    },
+    sleep: {
+      type: 'Sleep',
+      is_show: true,
+      title: '睡眠123',
+    },
   }
 }
 
 
 // 渲染模版
-nunjucks.render('index.html', {data: data}, (err, res) => {
+nunjucks.render('index.html', {H5Data: H5Data}, (err, res) => {
   console.log('err: ', err);
   console.log('res: ', res);
-  const dirName = 'template/src/'
+  const dirName = 'H5/src/'
   let baseDir = __dirname;
   let opts = {
     cwd: baseDir,
