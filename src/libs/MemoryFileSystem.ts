@@ -12,7 +12,7 @@ import MemoryFileSystemError from './MemoryFileSystemError';
 
 const errors = require("errno");
 const stream = require("readable-stream");
-
+const _fs = require("fs");
 
 const ReadableStream = stream.Readable;
 const WritableStream = stream.Writable;
@@ -125,24 +125,25 @@ class MemoryFileSystem {
 
 	//zmz 2018.11.27 add copyDir Function
 	copyDir(from, to) {
-		if(!this.existsSync(to)) {
+		if (!this.existsSync(to)) {
 			this.mkdirSync(to);
 		}
-		const paths = this.readdirSync(from);
-		console.log(paths);
-		paths.forEach((path)=>{
+	
+		const paths = _fs.readdirSync(from);
+		paths.forEach((path) => {
 			var src = `${from}/${path}`;
 			var dist = `${to}/${path}`;
-			const res = this.statSync(src);
-			if(res.isFile()) {
-				this.writeFileSync(dist, this.readFileSync(src));
+			const res = _fs.statSync(src);
+			// _fs.stat(src, function (err, stat) {
+			if (res.isFile()) {
+				this.writeFileSync(dist, _fs.readFileSync(src));
 				// console.log(chalk.magenta(`🏇 copy ${src} `));
-			} else if(res.isDirectory()) {
+			} else if (res.isDirectory()) {
 				this.copyDir(src, dist);
 			}
+			// })
 	
 		});
-	
 	}
 
 	readdirSync(_path) {
