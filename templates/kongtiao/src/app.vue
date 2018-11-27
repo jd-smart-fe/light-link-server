@@ -22,16 +22,6 @@
     />
     
     
-    <Counter
-      :counterText="counter.counterText"
-      :counterData="counter.counterData"
-      :counterMax="counter.counterMax"
-      :counterMin="counter.counterMin"
-      :counterStep="counter.counterStep"
-      :streamId="counter.streamId"
-      @changes="updateCounter"
-    />
-    
     
     <Modes
       :modeText="modes.modeText"

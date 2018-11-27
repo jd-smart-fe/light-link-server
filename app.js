@@ -34,7 +34,7 @@ const H5Data = {
     },
     counter: {
       type: 'Counter',
-      is_show: true,
+      is_show: false,
       title: '温度设置',
     },
     modes: {
