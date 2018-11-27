@@ -123,6 +123,28 @@ class MemoryFileSystem {
 		return encoding ? current.toString(encoding) : current;
 	}
 
+	//zmz 2018.11.27 add copyDir Function
+	copyDir(from, to) {
+		if(!this.existsSync(to)) {
+			this.mkdirSync(to);
+		}
+		const paths = this.readdirSync(from);
+		console.log(paths);
+		paths.forEach((path)=>{
+			var src = `${from}/${path}`;
+			var dist = `${to}/${path}`;
+			const res = this.statSync(src);
+			if(res.isFile()) {
+				this.writeFileSync(dist, this.readFileSync(src));
+				// console.log(chalk.magenta(`🏇 copy ${src} `));
+			} else if(res.isDirectory()) {
+				this.copyDir(src, dist);
+			}
+	
+		});
+	
+	}
+
 	readdirSync(_path) {
 		if(_path === "/") return Object.keys(this.data).filter(Boolean);
 		const path = pathToArray(_path);
