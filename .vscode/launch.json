@@ -15,6 +15,24 @@
       "args": [
         "${workspaceFolder}/src/app.ts"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CurrentJavaScriptFile",
+      "program": "${file}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CurrentTypescript",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${file}"
+      ]
     }
   ]
 }
