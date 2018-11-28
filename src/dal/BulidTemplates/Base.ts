@@ -1,7 +1,8 @@
 import { ReplaceResult } from '../ReplaceTemplates/Base';
+
 export interface BuildTemplateResult {
   status: boolean;
-  buildDirAddress: string;
+  buildDirAddress?: string;
 }
 
 abstract class BuildTemplatesBase {
@@ -9,6 +10,6 @@ abstract class BuildTemplatesBase {
   constructor(replaceResult: ReplaceResult) {
     this.replaceResult = replaceResult;
   }
-  abstract build(): BuildTemplateResult;
+  async abstract build(): Promise<BuildTemplateResult>;
 }
 export default BuildTemplatesBase;
