@@ -1,6 +1,6 @@
 export interface ReplaceResult {
   status: boolean; // 是否成功 true 成功，false 失败。
-  fileAddress: string; // 替换模板后文件的地址。
+  fileAddress?: string; // 替换模板后文件的地址。
 }
 
 abstract class ReplaceTemplatesBase {
@@ -16,6 +16,6 @@ abstract class ReplaceTemplatesBase {
     this.config = config;
   }
 
-  abstract replaceTemplates(): ReplaceResult;
+  abstract async replaceTemplates(): Promise<ReplaceResult>;
 }
 export default ReplaceTemplatesBase;
