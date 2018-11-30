@@ -1,6 +1,6 @@
 import { ReadStream } from 'fs';
 
-abstract class ZipFile {
+abstract class ZipFileBase {
   /**
    * 压缩文件夹的地址
    * @protected
@@ -20,4 +20,4 @@ abstract class ZipFile {
    */
   abstract zipDir(): ReadStream;
 }
-export default ZipFile;
+export default ZipFileBase;
