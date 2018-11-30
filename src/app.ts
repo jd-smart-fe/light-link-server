@@ -4,13 +4,17 @@ import * as Log4js from 'log4js';
 import * as serve from 'koa-static';
 import * as KoaViews from 'koa-views';
 import router from './routes';
+import cors from './middlewares/cors';
 
 const logger = Log4js.getLogger('app');
 logger.level = 'info';
 
 const app = new Koa();
 
-app.use(BodyParser());
+app.use(cors());
+app.use(BodyParser({
+  enableTypes: ['json', 'form', 'text'],
+}));
 
 app.use(serve('./static'));
 
