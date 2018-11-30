@@ -1,30 +1,43 @@
 import BuildTemplatesBase, { BuildTemplateResult } from './Base';
 import { exec, ChildProcess } from 'child_process';
 import * as path from 'path';
+import { ReplaceResult } from '../ReplaceTemplates/Base';
 
 class Bulid extends BuildTemplatesBase{
   private readonly BASH = 'npm run build';
   private dest: string;
-  constructor(dest) {
+  constructor(dest: ReplaceResult) {
     super(dest);
-    this.dest = dest;
+    this.dest = dest.fileAddress;
   }
   async build(): Promise<BuildTemplateResult> {
 
     const res: BuildTemplateResult = {
       status: false,
     };
-    const b = await this.exec();
-    if (!b) {
+    const isBuild = await this.exec(this.BASH);
+    if (!isBuild) {
       return res;
     }
+    const timestamp = Date.now();
+    // 压缩文件
+    const isZip = await this.exec(`zip -r ${timestamp} ./`);
+    if (!isZip) {
+      return res;
+    }
+    // 移动文件
+    const isMove = await this.exec(`mv ${timestamp}.zip ../../src/public/${timestamp}.zip`);
+    if (!isMove) {
+      return res;
+    }
+    res.download = `http://localhost:3001/${timestamp}.zip`;
     res.status = true;
     res.buildDirAddress = this.dest;
     return res;
   }
-  async exec(): Promise<boolean> {
+  async exec(bash): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
-      const child =  exec(this.BASH, {
+      const child =  exec(bash, {
         cwd: path.join(this.dest),
       // tslint:disable-next-line:align
       }, error => {

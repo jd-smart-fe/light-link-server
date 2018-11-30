@@ -3,6 +3,7 @@ import { ReplaceResult } from '../ReplaceTemplates/Base';
 export interface BuildTemplateResult {
   status: boolean;
   buildDirAddress?: string;
+  download?: string;
 }
 
 abstract class BuildTemplatesBase {
