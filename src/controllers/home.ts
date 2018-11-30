@@ -12,9 +12,9 @@ class HomeController extends BaseController {
     await ctx.render('home/index');
   }
   async publish(ctx: Koa.Context, next) {
-    const body: any = ctx.request.body;
-    const data = JSON.parse(body.H5Data);
-    const { status, download } = await this.service.publish(data);
+    const data: any = ctx.request.body;
+
+    const { status, download } = await this.service.publish(data.H5Data);
     ctx.body = {
       status,
       download,
