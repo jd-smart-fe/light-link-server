@@ -14,6 +14,9 @@ app.use(BodyParser());
 
 app.use(serve('./static'));
 
+// 测试使用，后期优化。
+app.use(serve('./src/public'));
+
 app.use(
   KoaViews(`${__dirname}/views`, {
     map: {
