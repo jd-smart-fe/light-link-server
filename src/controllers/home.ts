@@ -8,14 +8,14 @@ const H5Data = {
   data: {
     header: {
       type: 'Header',
-      is_show: true,
+      is_show: false,
       des_curtemp: '当前温度',
       des_pattern: '当前模式',
       des_speed: '当前风速',
     },
     power: {
       type: 'Power',
-      is_show: true,
+      is_show: false,
       title: '设备状态',
       status: {
         0: '设备已关闭',
@@ -24,12 +24,12 @@ const H5Data = {
     },
     counter: {
       type: 'Counter',
-      is_show: true,
+      is_show: false,
       title: '温度设置',
     },
     modes: {
       type: 'Modes',
-      is_show: true,
+      is_show: false,
       title: '模式设置',
       modeData: JSON.stringify([
         {
@@ -106,17 +106,17 @@ const H5Data = {
     },
     screenDisplay: {
       type: 'ScreenDisplay',
-      is_show: true,
+      is_show: false,
       title: '屏显',
     },
     mute: {
       type: 'Mute',
-      is_show: true,
+      is_show: false,
       title: '静音',
     },
     sleep: {
       type: 'Sleep',
-      is_show: true,
+      is_show: false,
       title: '睡眠',
     },
   },
