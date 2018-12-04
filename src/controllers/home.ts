@@ -71,7 +71,7 @@ const H5Data = {
     },
     windRang: {
       type: 'WindRang',
-      is_show: true,
+      is_show: false,
       title: '风速调节',
       windRangValues: JSON.stringify([
         {
